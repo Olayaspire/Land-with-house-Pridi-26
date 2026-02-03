@@ -1,58 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Land with House – Pridi 26</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Land with House – Pridi 26</title>
 
- <style>
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
-
-  .gallery img {
-    width: 100%;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-  .gallery img:hover {
-    transform: scale(1.1);
-  }
-</style>
-
-<script>
-function openModal(src) {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modal-img").src = src;
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
 }
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
+h1 {
+  margin-bottom: 15px;
+}
+
+/* ===== Gallery ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Popup ===== */
+#popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#popup img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Land with House – Pridi 26</h1>
+
+<div class="gallery">
+  <img src="img.jpg"   onclick="openImg(this.src)">
+  <img src="img1.jpg"  onclick="openImg(this.src)">
+  <img src="img2.jpg"  onclick="openImg(this.src)">
+  <img src="img3.jpg"  onclick="openImg(this.src)">
+  <img src="img4.jpg"  onclick="openImg(this.src)">
+  <img src="img5.jpg"  onclick="openImg(this.src)">
+  <img src="img6.jpg"  onclick="openImg(this.src)">
+  <img src="img7.jpg"  onclick="openImg(this.src)">
+  <img src="img8.jpg"  onclick="openImg(this.src)">
+  <img src="img9.jpg"  onclick="openImg(this.src)">
+  <img src="img10.jpg" onclick="openImg(this.src)">
+  <img src="img11.jpg" onclick="openImg(this.src)">
+  <img src="img12.jpg" onclick="openImg(this.src)">
+</div>
+
+<!-- Popup -->
+<div id="popup" onclick="closeImg()">
+  <img id="popup-img">
+</div>
+
+<script>
+const images = [
+  "img.jpg",
+  "img1.jpg",
+  "img2.jpg",
+  "img3.jpg",
+  "img4.jpg",
+  "img5.jpg",
+  "img6.jpg",
+  "img7.jpg",
+  "img8.jpg",
+  "img9.jpg",
+  "img10.jpg",
+  "img11.jpg",
+  "img12.jpg"
+];
+
+let currentIndex = 0;
+let startX = 0;
+
+function openImg(src) {
+  currentIndex = images.indexOf(src);
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("popup-img").src = src;
+}
+
+function closeImg() {
+  document.getElementById("popup").style.display = "none";
+}
+
+/* ===== Swipe มือถือ ===== */
+const popup = document.getElementById("popup");
+
+popup.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+popup.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  let diff = startX - endX;
+
+  if (diff > 50) nextImg();     // ปัดซ้าย
+  if (diff < -50) prevImg();   // ปัดขวา
+});
+
+function nextImg() {
+  currentIndex = (currentIndex + 1) % images.length;
+  document.getElementById("popup-img").src = images[currentIndex];
+}
+
+function prevImg() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  document.getElementById("popup-img").src = images[currentIndex];
 }
 </script>
 
-
-<body>
-  <h1>Land with House – Pridi 26</h1>
-
-  <div class="gallery">
-  <img src="img.jpg">
-  <img src="img1.jpg">
-  <img src="img2.jpg">
-  <img src="img3.jpg">
-  <img src="img4.jpg">
-  <img src="img5.jpg">
-  <img src="img6.jpg">
-  <img src="img7.jpg">
-  <img src="img8.jpg">
-  <img src="img9.jpg">
-  <img src="img10.jpg">
-  <img src="img11.jpg">
-  <img src="img12.jpg">
-</div>
+</body>
+</html>
 
   <h2>Contact</h2>
 

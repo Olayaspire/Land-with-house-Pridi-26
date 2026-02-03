@@ -2,73 +2,57 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Land with House – Pridi 26</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Arial, sans-serif;
   margin: 20px;
-  background: #fff;
-  color: #222;
 }
 
 h1 {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-/* ===== ราคาเด่น ===== */
+/* PRICE BOX */
 .price-box {
-  background: linear-gradient(135deg, #fff6e5, #ffffff);
-  border: 2px solid #f2c94c;
-  border-radius: 16px;
+  border: 2px solid #f5b000;
+  border-radius: 15px;
   padding: 20px;
   max-width: 420px;
-  margin-bottom: 25px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
-
-.price-tag {
-  font-size: 14px;
-  font-weight: bold;
-  color: #b45309;
+  background: #fffaf0;
+  margin-bottom: 30px;
 }
 
 .price {
+  color: #d32f2f;
   font-size: 32px;
   font-weight: bold;
-  color: #c0392b;
 }
 
-.price-sub {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.price-info span {
+.tags span {
   display: inline-block;
-  background: #fff;
+  margin: 6px 6px 0 0;
   padding: 6px 10px;
-  margin: 4px;
-  border-radius: 8px;
-  border: 1px solid #eee;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
   font-size: 14px;
 }
 
-/* ===== Gallery ===== */
+/* GALLERY */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 12px;
-  margin-bottom: 30px;
 }
 
 .gallery img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 12px;
   cursor: pointer;
   transition: transform 0.3s;
 }
@@ -77,12 +61,12 @@ h1 {
   transform: scale(1.05);
 }
 
-/* ===== Modal ดูรูปใหญ่ ===== */
+/* MODAL */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -91,39 +75,35 @@ h1 {
 .modal img {
   max-width: 95%;
   max-height: 95%;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
-/* ===== ปุ่มติดต่อ ===== */
-.contact-float {
+/* FLOAT CONTACT */
+.contact {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
+  right: 15px;
+  bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  z-index: 9999;
 }
 
-.contact-float a {
+.contact a {
   text-decoration: none;
-  color: #fff;
-  padding: 12px 14px;
+  color: white;
+  padding: 12px 16px;
   border-radius: 30px;
   font-weight: bold;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
 }
 
-.call { background: #2563eb; }
-.line { background: #06c755; }
-.whatsapp { background: #25d366; }
+.call { background:#2563eb; }
+.line { background:#06c755; }
+.whatsapp { background:#25d366; }
 
-/* ===== Map ===== */
+/* MAP */
 .map {
   margin-top: 30px;
-  border-radius: 16px;
-  overflow: hidden;
 }
 </style>
 </head>
@@ -132,21 +112,19 @@ h1 {
 
 <h1>Land with House – Pridi 26</h1>
 
-<section class="price-box">
-  <div class="price-tag">💰 ราคาเสนอขาย</div>
+<div class="price-box">
+  <div>💰 ราคาเสนอขาย</div>
   <div class="price">17,710,000 บาท</div>
-  <div class="price-sub">ค่าโอน 50/50</div>
-  <div class="price-info">
+  <div>ค่าโอน 50/50</div>
+  <div class="tags">
     <span>📐 77 ตร.ว.</span>
     <span>📍 สุขุมวิท 71</span>
     <span>🚆 BTS พระโขนง</span>
   </div>
-</section>
+</div>
 
-  
-<!-- ===== Gallery ===== -->
+<!-- GALLERY -->
 <div class="gallery">
-  <div class="gallery">
   <img src="img.jpg" onclick="openModal(this.src)">
   <img src="img1.jpg" onclick="openModal(this.src)">
   <img src="img2.jpg" onclick="openModal(this.src)">
@@ -158,37 +136,33 @@ h1 {
   <img src="img12.jpg" onclick="openModal(this.src)">
 </div>
 
-<!-- ===== Google Map ===== -->
-<div class="map">
-  <iframe
-    src="https://www.google.com/maps?q=Pridi%2026&output=embed"
-    width="100%"
-    height="350"
-    style="border:0;"
-    loading="lazy">
-  </iframe>
-</div>
-
-<!-- ===== Modal ===== -->
+<!-- MODAL -->
 <div class="modal" id="modal" onclick="closeModal()">
   <img id="modalImg">
 </div>
 
-<!-- ===== ปุ่มลอย ===== -->
-<div class="contact-float">
-  <a class="call" href="tel:0931359945">📞 Call</a> 093-1359945
-  <a class="line" href="https://line.me/R/ti/p/@aspireproperty" target="_blank">💬 LINE</a> @aspireproperty
-  <a class="whatsapp" href="https://wa.me/66931359945" target="_blank">🟢 WhatsApp</a> 66+93-1379945
+<!-- MAP -->
+<div class="map">
+  <iframe
+    src="https://www.google.com/maps?q=สุขุมวิท+71&output=embed"
+    width="100%" height="300" style="border:0;" loading="lazy">
+  </iframe>
+</div>
+
+<!-- CONTACT -->
+<div class="contact">
+  <a class="call" href="tel:0931359945">📞 Call</a>
+  <a class="line" href="https://line.me/R/ti/p/@aspireproperty">💬 LINE</a>
+  <a class="whatsapp" href="https://wa.me/66931359945">🟢 WhatsApp</a>
 </div>
 
 <script>
-function openModal(src) {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modalImg").src = src;
+function openModal(src){
+  document.getElementById("modal").style.display="flex";
+  document.getElementById("modalImg").src=src;
 }
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
+function closeModal(){
+  document.getElementById("modal").style.display="none";
 }
 </script>
 

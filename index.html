@@ -1,168 +1,224 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Land with House – Pridi 26</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Land with House – Pridi 26 | Sukhumvit 71</title>
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
+  <!-- SEO -->
+  <meta name="description" content="Land with house for sale at Pridi Banomyong 26, Sukhumvit 71. 77 sq.wah, near BTS Phra Khanong. Price 17.71 MB." />
+  <meta name="keywords" content="Land Pridi 26, Sukhumvit 71, House for sale Bangkok, BTS Phra Khanong" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-h1 {
-  margin-bottom: 15px;
-}
+  <!-- Open Graph -->
+  <meta property="og:title" content="Land with House – Pridi 26" />
+  <meta property="og:description" content="Prime land near BTS Phra Khanong, Sukhumvit 71" />
+  <meta property="og:image" content="img1.jpg" />
 
-/* PRICE BOX */
-.price-box {
-  border: 2px solid #f5b000;
-  border-radius: 15px;
-  padding: 20px;
-  max-width: 420px;
-  background: #fffaf0;
-  margin-bottom: 30px;
-}
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
-.price {
-  color: #d32f2f;
-  font-size: 32px;
-  font-weight: bold;
-}
+  <style>
+    body{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+      margin:0;
+      background:#fff;
+      color:#222;
+    }
+    h1,h2{margin-top:0}
 
-.tags span {
-  display: inline-block;
-  margin: 6px 6px 0 0;
-  padding: 6px 10px;
-  border-radius: 20px;
-  background: #fff;
-  border: 1px solid #ddd;
-  font-size: 14px;
-}
+    .lang{
+      text-align:right;
+      max-width:1200px;
+      margin:20px auto 0;
+    }
+    .lang button{
+      border:1px solid #ccc;
+      background:#fff;
+      padding:6px 12px;
+      border-radius:20px;
+      cursor:pointer;
+    }
 
-/* GALLERY */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
-}
+    .layout{
+      display:grid;
+      grid-template-columns: 2fr 1fr;
+      gap:30px;
+      max-width:1200px;
+      margin:20px auto;
+      padding:0 15px;
+    }
 
-.gallery img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
+    @media(max-width:768px){
+      .layout{grid-template-columns:1fr}
+    }
 
-.gallery img:hover {
-  transform: scale(1.05);
-}
+    .price-box{
+      border:2px solid #f5b400;
+      border-radius:16px;
+      padding:20px;
+      background:#fffaf0;
+      position:sticky;
+      top:20px;
+    }
+    .price{
+      font-size:32px;
+      color:#d44;
+      font-weight:bold;
+    }
 
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+    .tag{
+      display:inline-block;
+      background:#f1f1f1;
+      padding:6px 10px;
+      border-radius:20px;
+      margin:5px 5px 0 0;
+      font-size:14px;
+    }
 
-.modal img {
-  max-width: 95%;
-  max-height: 95%;
-  border-radius: 10px;
-}
+    .swiper{
+      border-radius:16px;
+      overflow:hidden;
+      margin-bottom:20px;
+    }
+    .swiper img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+    }
 
-/* FLOAT CONTACT */
-.contact {
-  position: fixed;
-  right: 15px;
-  bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.contact a {
-  text-decoration: none;
-  color: white;
-  padding: 12px 16px;
-  border-radius: 30px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.call { background:#2563eb; }
-.line { background:#06c755; }
-.whatsapp { background:#25d366; }
-
-/* MAP */
-.map {
-  margin-top: 30px;
-}
-</style>
+    .contact{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .contact a{
+      padding:12px 18px;
+      border-radius:30px;
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      text-align:center;
+    }
+    .call{background:#2563eb}
+    .line{background:#22c55e}
+    .wa{background:#25D366}
+  </style>
 </head>
 
 <body>
 
-<h1>Land with House – Pridi 26</h1>
+<div class="lang">
+  <button onclick="setLang('th')">TH</button>
+  <button onclick="setLang('en')">EN</button>
+</div>
 
-<div class="price-box">
-  <div>💰 ราคาเสนอขาย</div>
-  <div class="price">17,710,000 บาท</div>
-  <div>ค่าโอน 50/50</div>
-  <div class="tags">
-    <span>📐 77 ตร.ว.</span>
-    <span>📍 สุขุมวิท 71</span>
-    <span>🚆 BTS พระโขนง</span>
+<div class="layout">
+
+  <!-- LEFT -->
+  <div>
+    <h1 id="title">Land with House – Pridi 26</h1>
+
+    <!-- Slider -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img1.jpg"></div>
+        <div class="swiper-slide"><img src="img2.jpg"></div>
+        <div class="swiper-slide"><img src="img3.jpg"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <h2 id="detailTitle">Property Details</h2>
+    <ul id="details">
+      <li>Land size 77 sq.wah</li>
+      <li>Sukhumvit 71</li>
+      <li>Near BTS Phra Khanong</li>
+    </ul>
+
+    <h2 id="mapTitle">Location</h2>
+    <iframe
+      src="https://www.google.com/maps?q=Pridi%2026&output=embed"
+      width="100%" height="320"
+      style="border:0;border-radius:16px;"
+      loading="lazy">
+    </iframe>
   </div>
+
+  <!-- RIGHT -->
+  <div>
+    <div class="price-box">
+      <div id="priceLabel">Selling Price</div>
+      <div class="price">17,710,000 THB</div>
+      <div id="transfer">Transfer fee 50/50</div>
+
+      <div style="margin-top:15px">
+        <span class="tag">77 sq.wah</span>
+        <span class="tag">Sukhumvit 71</span>
+        <span class="tag">BTS Phra Khanong</span>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<!-- GALLERY -->
-<div class="gallery">
-  <img src="img.jpg" onclick="openModal(this.src)">
-  <img src="img1.jpg" onclick="openModal(this.src)">
-  <img src="img2.jpg" onclick="openModal(this.src)">
-  <img src="img3.jpg" onclick="openModal(this.src)">
-  <img src="img4.jpg" onclick="openModal(this.src)">
-  <img src="img5.jpg" onclick="openModal(this.src)">
-  <img src="img10.jpg" onclick="openModal(this.src)">
-  <img src="img11.jpg" onclick="openModal(this.src)">
-  <img src="img12.jpg" onclick="openModal(this.src)">
-</div>
-
-<!-- MODAL -->
-<div class="modal" id="modal" onclick="closeModal()">
-  <img id="modalImg">
-</div>
-
-<!-- MAP -->
-<div class="map">
-  <iframe
-    src="https://www.google.com/maps?q=สุขุมวิท+71&output=embed"
-    width="100%" height="300" style="border:0;" loading="lazy">
-  </iframe>
-</div>
-
-<!-- CONTACT -->
+<!-- Contact -->
 <div class="contact">
   <a class="call" href="tel:0931359945">📞 Call</a>
-  <a class="line" href="https://line.me/R/ti/p/@aspireproperty">💬 LINE</a>
-  <a class="whatsapp" href="https://wa.me/66931359945">🟢 WhatsApp</a>
+  <a class="line" href="https://line.me/ti/p/@aspireproperty">💬 LINE</a>
+  <a class="wa" href="https://wa.me/66931359945">🟢 WhatsApp</a>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
-function openModal(src){
-  document.getElementById("modal").style.display="flex";
-  document.getElementById("modalImg").src=src;
-}
-function closeModal(){
-  document.getElementById("modal").style.display="none";
+new Swiper('.swiper',{
+  pagination:{el:'.swiper-pagination'},
+  loop:true
+});
+
+const text = {
+  th:{
+    title:"ที่ดินพร้อมบ้าน – ปรีดี 26",
+    detailTitle:"รายละเอียดทรัพย์",
+    details:[
+      "ที่ดิน 77 ตารางวา",
+      "สุขุมวิท 71",
+      "ใกล้ BTS พระโขนง"
+    ],
+    mapTitle:"แผนที่",
+    priceLabel:"ราคาขาย",
+    transfer:"ค่าโอน 50/50"
+  },
+  en:{
+    title:"Land with House – Pridi 26",
+    detailTitle:"Property Details",
+    details:[
+      "Land size 77 sq.wah",
+      "Sukhumvit 71",
+      "Near BTS Phra Khanong"
+    ],
+    mapTitle:"Location",
+    priceLabel:"Selling Price",
+    transfer:"Transfer fee 50/50"
+  }
+};
+
+function setLang(l){
+  document.getElementById("title").innerText=text[l].title;
+  document.getElementById("detailTitle").innerText=text[l].detailTitle;
+  document.getElementById("mapTitle").innerText=text[l].mapTitle;
+  document.getElementById("priceLabel").innerText=text[l].priceLabel;
+  document.getElementById("transfer").innerText=text[l].transfer;
+
+  const ul=document.getElementById("details");
+  ul.innerHTML="";
+  text[l].details.forEach(d=>{
+    const li=document.createElement("li");
+    li.innerText=d;
+    ul.appendChild(li);
+  });
 }
 </script>
 

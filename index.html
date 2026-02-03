@@ -4,19 +4,36 @@
   <meta charset="UTF-8">
   <title>Land with House – Pridi 26</title>
 
-  <style>
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
+ <style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
 
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-    }
-  </style>
-</head>
+  .gallery img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+<script>
+function openModal(src) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modal-img").src = src;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
 
 <body>
   <h1>Land with House – Pridi 26</h1>

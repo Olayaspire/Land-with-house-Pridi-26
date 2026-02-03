@@ -3,167 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Luxury Condo for Sale Sukhumvit | ขายคอนโดสุขุมวิท</title>
-<meta name="description" content="Luxury condo for sale in Sukhumvit. Near BTS, ready to move in. คอนโดหรูใกล้ BTS ราคาดี">
-
-<!-- SEO -->
-<meta name="robots" content="index, follow">
-
-<!-- Swiper -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<title>Land with House – Pridi 26</title>
 
 <style>
-body { font-family: Arial, sans-serif; margin:0; background:#f5f5f5; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 20px;
+  background: #fff;
+  color: #222;
+}
 
-.container { max-width:1000px; margin:auto; padding:15px; }
+h1 {
+  margin-bottom: 10px;
+}
 
-/* ราคาเด่น */
+/* ===== ราคาเด่น ===== */
 .price-box {
-  background:#c62828;
-  color:#fff;
-  padding:15px;
-  border-radius:10px;
-  font-size:26px;
-  font-weight:bold;
-  text-align:center;
-  margin:15px 0;
+  background: linear-gradient(135deg, #fff6e5, #ffffff);
+  border: 2px solid #f2c94c;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 420px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
-/* Swiper */
-.swiper { width:100%; height:260px; border-radius:10px; }
-.swiper-slide img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  cursor:pointer;
+.price-tag {
+  font-size: 14px;
+  font-weight: bold;
+  color: #b45309;
 }
 
-/* ปุ่มติดต่อ */
-.contact-buttons {
-  position:fixed;
-  right:15px;
-  bottom:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:999;
-}
-.contact-buttons a {
-  padding:12px 16px;
-  border-radius:30px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  text-align:center;
-}
-.call { background:#0d47a1; }
-.line { background:#00c300; }
-.wa { background:#25d366; }
-
-/* ปุ่มภาษา */
-.lang {
-  position:fixed;
-  top:10px;
-  right:10px;
-}
-.lang button {
-  padding:6px 10px;
-  margin-left:5px;
+.price {
+  font-size: 32px;
+  font-weight: bold;
+  color: #c0392b;
 }
 
-/* Fullscreen image */
-#lightbox {
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
+.price-sub {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
 }
-#lightbox img {
-  max-width:90%;
-  max-height:90%;
+
+.price-info span {
+  display: inline-block;
+  background: #fff;
+  padding: 6px 10px;
+  margin: 4px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  font-size: 14px;
+}
+
+/* ===== Gallery ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Modal ดูรูปใหญ่ ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 12px;
+}
+
+/* ===== ปุ่มติดต่อ ===== */
+.contact-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.contact-float a {
+  text-decoration: none;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.call { background: #2563eb; }
+.line { background: #06c755; }
+.whatsapp { background: #25d366; }
+
+/* ===== Map ===== */
+.map {
+  margin-top: 30px;
+  border-radius: 16px;
+  overflow: hidden;
 }
 </style>
 </head>
 
 <body>
 
-<div class="lang">
-  <button onclick="setLang('th')">TH</button>
-  <button onclick="setLang('en')">EN</button>
-</div>
+<h1>Land with House – Pridi 26</h1>
 
-<div class="container">
-
-<h1 data-th="ขายคอนโดหรู สุขุมวิท ใกล้ BTS"
-    data-en="Luxury Condo for Sale Sukhumvit Near BTS"></h1>
-
-<!-- ราคา -->
-<div class="price-box"
- data-th="ราคา 9,900,000 บาท"
- data-en="Price 9,900,000 THB"></div>
-
-<!-- Gallery -->
-<div class="swiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="img/1.jpg" alt="Living Room"></div>
-    <div class="swiper-slide"><img src="img/2.jpg" alt="Bedroom"></div>
-    <div class="swiper-slide"><img src="img/3.jpg" alt="Kitchen"></div>
+<section class="price-box">
+  <div class="price-tag">💰 ราคาเสนอขาย</div>
+  <div class="price">17,710,000 บาท</div>
+  <div class="price-sub">ค่าโอน 50/50</div>
+  <div class="price-info">
+    <span>📐 77 ตร.ว.</span>
+    <span>📍 สุขุมวิท 71</span>
+    <span>🚆 BTS พระโขนง</span>
   </div>
-  <div class="swiper-pagination"></div>
+</section>
+
+<!-- ===== Gallery ===== -->
+<div class="gallery">
+  <img src="images/1.jpg" onclick="openModal(this.src)">
+  <img src="images/2.jpg" onclick="openModal(this.src)">
+  <img src="images/3.jpg" onclick="openModal(this.src)">
+  <img src="images/4.jpg" onclick="openModal(this.src)">
+  <img src="images/5.jpg" onclick="openModal(this.src)">
+  <img src="images/6.jpg" onclick="openModal(this.src)">
+  <img src="images/7.jpg" onclick="openModal(this.src)">
+  <img src="images/8.jpg" onclick="openModal(this.src)">
 </div>
 
-<!-- รายละเอียด -->
-<h2 data-th="รายละเอียดทรัพย์" data-en="Property Details"></h2>
-<ul>
-  <li data-th="2 ห้องนอน 2 ห้องน้ำ" data-en="2 Bedrooms 2 Bathrooms"></li>
-  <li data-th="ขนาด 85 ตร.ม." data-en="Size 85 sq.m."></li>
-  <li data-th="ใกล้ BTS 300 เมตร" data-en="300m from BTS"></li>
-</ul>
-
-<!-- Map -->
-<h2 data-th="แผนที่" data-en="Location"></h2>
-<iframe
- src="https://www.google.com/maps?q=sukhumvit&output=embed"
- width="100%" height="250" style="border:0;" loading="lazy"></iframe>
-
+<!-- ===== Google Map ===== -->
+<div class="map">
+  <iframe
+    src="https://www.google.com/maps?q=Pridi%2026&output=embed"
+    width="100%"
+    height="350"
+    style="border:0;"
+    loading="lazy">
+  </iframe>
 </div>
 
-<!-- ปุ่มติดต่อ -->
-<div class="contact-buttons">
-  <a class="call" href="tel:0931359945">📞 CALL</a>
-  <a class="line" href="https://line.me/ti/p/~yourlineid">💬 LINE</a>
-  <a class="wa" href="https://wa.me/66931359945">🟢 WhatsApp</a>
+<!-- ===== Modal ===== -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <img id="modalImg">
 </div>
 
-<!-- Lightbox -->
-<div id="lightbox" onclick="this.style.display='none'">
-  <img id="lightbox-img">
+<!-- ===== ปุ่มลอย ===== -->
+<div class="contact-float">
+  <a class="call" href="tel:0931359945">📞 Call</a>
+  <a class="line" href="https://line.me/R/ti/p/@aspireproperty" target="_blank">💬 LINE</a>
+  <a class="whatsapp" href="https://wa.me/66931359945" target="_blank">🟢 WhatsApp</a>
 </div>
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-const swiper = new Swiper('.swiper', {
-  pagination: { el: '.swiper-pagination' },
-});
-
-document.querySelectorAll('.swiper-slide img').forEach(img=>{
-  img.onclick=()=>{
-    document.getElementById('lightbox-img').src=img.src;
-    document.getElementById('lightbox').style.display='flex';
-  }
-});
-
-function setLang(lang){
-  document.querySelectorAll('[data-th]').forEach(el=>{
-    el.textContent = el.dataset[lang];
-  });
+function openModal(src) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modalImg").src = src;
 }
-setLang('en'); // เริ่มภาษาอังกฤษอัตโนมัติ
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
 </script>
 
 </body>

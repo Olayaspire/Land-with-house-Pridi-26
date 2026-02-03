@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Land with House – Pridi 26</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
@@ -18,36 +20,74 @@ h1 {
 /* ===== Gallery ===== */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
 }
 
 .gallery img {
   width: 100%;
-  border-radius: 10px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
   transform: scale(1.05);
 }
 
-/* ===== Popup ===== */
-#popup {
+/* ===== Lightbox ===== */
+.lightbox {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
 
-#popup img {
-  max-width: 95%;
-  max-height: 95%;
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
   border-radius: 10px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+/* ===== Contact Buttons ===== */
+.contact {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.call { background: #0d6efd; }
+.line { background: #00c300; }
+.whatsapp { background: #25d366; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .gallery {
+    overflow-x: auto;
+    display: flex;
+  }
+  .gallery img {
+    min-width: 80%;
+    height: 220px;
+  }
 }
 </style>
 </head>
@@ -56,93 +96,96 @@ h1 {
 
 <h1>Land with House – Pridi 26</h1>
 
+<!-- ===== Price Highlight Box ===== -->
+<section class="price-box">
+  <div class="price-tag">💰 ราคาเสนอขาย</div>
+  <div class="price">17,710,000 บาท</div>
+  <div class="price-sub">ค่าโอน 50/50</div>
+
+  <div class="price-info">
+    <span>📐 77 ตร.ว.</span>
+    <span>📍 สุขุมวิท 71</span>
+    <span>🚆 ใกล้ BTS พระโขนง</span>
+  </div>
+</section>
+  
+  
+<!-- ===== Gallery ===== -->
 <div class="gallery">
-  <img src="img.jpg"   onclick="openImg(this.src)">
-  <img src="img1.jpg"  onclick="openImg(this.src)">
-  <img src="img2.jpg"  onclick="openImg(this.src)">
-  <img src="img3.jpg"  onclick="openImg(this.src)">
-  <img src="img4.jpg"  onclick="openImg(this.src)">
-  <img src="img5.jpg"  onclick="openImg(this.src)">
-  <img src="img6.jpg"  onclick="openImg(this.src)">
-  <img src="img7.jpg"  onclick="openImg(this.src)">
-  <img src="img8.jpg"  onclick="openImg(this.src)">
-  <img src="img9.jpg"  onclick="openImg(this.src)">
-  <img src="img10.jpg" onclick="openImg(this.src)">
-  <img src="img11.jpg" onclick="openImg(this.src)">
-  <img src="img12.jpg" onclick="openImg(this.src)">
+  <img src="img.jpg" onclick="openLightbox(this)">
+  <img src="img1.jpg" onclick="openLightbox(this)">
+  <img src="img2.jpg" onclick="openLightbox(this)">
+  <img src="img3.jpg" onclick="openLightbox(this)">
+  <img src="img4.jpg" onclick="openLightbox(this)">
+  <img src="img5.jpg" onclick="openLightbox(this)">
+  <img src="img6.jpg" onclick="openLightbox(this)">
+  <img src="img7.jpg" onclick="openLightbox(this)">
+  <img src="img8.jpg" onclick="openLightbox(this)">
+  <img src="img9.jpg" onclick="openLightbox(this)">
+  <img src="img10.jpg" onclick="openLightbox(this)">
+  <img src="img11.jpg" onclick="openLightbox(this)">
+  <img src="img12.jpg" onclick="openLightbox(this)">
 </div>
 
-<!-- Popup -->
-<div id="popup" onclick="closeImg()">
-  <img id="popup-img">
+<!-- ===== Contact ===== -->
+<h2>Contact</h2>
+<div class="contact">
+  <a class="btn call" href="tel:+66931359945">📞 Call</a>
+  <a class="btn line" href="https://line.me/ti/p/@aspireproperty" target="_blank">💬 LINE</a>
+  <a class="btn whatsapp" href="https://wa.me/66931359945" target="_blank">🟢 WhatsApp</a>
+</div>
+
+<!-- ===== Lightbox ===== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
 </div>
 
 <script>
-const images = [
-  "img.jpg",
-  "img1.jpg",
-  "img2.jpg",
-  "img3.jpg",
-  "img4.jpg",
-  "img5.jpg",
-  "img6.jpg",
-  "img7.jpg",
-  "img8.jpg",
-  "img9.jpg",
-  "img10.jpg",
-  "img11.jpg",
-  "img12.jpg"
-];
-
-let currentIndex = 0;
-let startX = 0;
-
-function openImg(src) {
-  currentIndex = images.indexOf(src);
-  document.getElementById("popup").style.display = "flex";
-  document.getElementById("popup-img").src = src;
+function openLightbox(img) {
+  document.getElementById("lightbox").classList.add("active");
+  document.getElementById("lightbox-img").src = img.src;
 }
 
-function closeImg() {
-  document.getElementById("popup").style.display = "none";
-}
-
-/* ===== Swipe มือถือ ===== */
-const popup = document.getElementById("popup");
-
-popup.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
-
-popup.addEventListener("touchend", e => {
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
-
-  if (diff > 50) nextImg();     // ปัดซ้าย
-  if (diff < -50) prevImg();   // ปัดขวา
-});
-
-function nextImg() {
-  currentIndex = (currentIndex + 1) % images.length;
-  document.getElementById("popup-img").src = images[currentIndex];
-}
-
-function prevImg() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  document.getElementById("popup-img").src = images[currentIndex];
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("active");
 }
 </script>
 
 </body>
 </html>
 
-  <h2>Contact</h2>
+<!-- ===== Property Details ===== -->
+<section class="details">
+  <h2>🏷 รายละเอียดทรัพย์</h2>
+  <ul>
+    <li><strong>ประเภท:</strong> ที่ดินพร้อมบ้าน 2 ชั้น (ทุบได้)</li>
+    <li><strong>ขนาดที่ดิน:</strong> 77 ตารางวา</li>
+    <li><strong>พื้นที่ใช้สอย:</strong> ประมาณ 200 ตร.ม.</li>
+    <li><strong>หน้ากว้าง:</strong> ประมาณ 12 เมตร</li>
+    <li><strong>ทำเล:</strong> สุขุมวิท 71 (ปรีดีพนมยงค์ 26)</li>
+    <li><strong>การเดินทาง:</strong> ใกล้ BTS พระโขนง</li>
+    <li><strong>เหมาะสำหรับ:</strong> สร้างบ้านใหม่ / Home Office / ลงทุน</li>
+  </ul>
+</section>
 
-<div class="contact"> +66931359945
-  <a class="btn call" href="tel:+66931359945">📞 Call</a> 
+<!-- ===== Google Map ===== -->
+<section class="map">
+  <h2>📍 ที่ตั้งทรัพย์</h2>
+  <iframe
+    src="https://www.google.com/maps?q=Pridi%20Banomyong%2026&output=embed"
+    width="100%"
+    height="350"
+    style="border-radius:12px;border:0;"
+    loading="lazy">
+  </iframe>
+</section>
+
+<div class="contact">
+  <a class="btn call" href="tel:+66931359945">📞 Call</a> 66+931359945
   <a class="btn line" href="https://line.me/ti/p/@aspireproperty" target="_blank">💬 LINE</a> @aspireproperty
-  <a class="btn whatsapp" href="https://wa.me/66931359945" target="_blank">🟢 WhatsApp</a> 66+931359945
+  <a class="btn whatsapp" href="https://wa.me/66931359945" target="_blank">🟢 WhatsApp</a> 66+931379945
 </div>
+
 
 </body>
 </html>

@@ -95,29 +95,44 @@ h1 {
 }
 
 /* ===== ปุ่มติดต่อ ===== */
-.contact-float {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 9999;
+..contact-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
 }
 
-.contact-float a {
-  text-decoration: none;
-  color: #fff;
-  padding: 12px 14px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+.contact-buttons a {
+    display: block;
+    padding: 14px 22px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: 0.2s;
 }
 
-.call { background: #2563eb; }
-.line { background: #06c755; }
-.whatsapp { background: #25d366; }
+.contact-buttons a:hover {
+    transform: scale(1.05);
+}
+
+.call-btn {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.line-btn {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.whatsapp-btn {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
 
 /* ===== Map ===== */
 .map {
